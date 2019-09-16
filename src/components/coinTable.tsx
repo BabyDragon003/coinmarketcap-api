@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,6 +12,22 @@ import { fetchCoinList, fetchCoinCount } from '../Redux/actions/coinAction';
 import { useAppDispatch } from '../Redux/hooks';
 
 function createData(
+	rank: number,
+	name: string,
+	symbol: string,
+	slug: string,
+) {
+	return { rank, name, symbol, slug };
+}
+
+const LIMIT_PAGE = 10;
+
+const rows = [
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
