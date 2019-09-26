@@ -13,22 +13,6 @@ import { fetchCoinList, fetchCoinCount } from '../Redux/actions/coinAction';
 import { useAppDispatch } from '../Redux/hooks';
 
 function createData(
-	rank: number,
-	name: string,
-	symbol: string,
-	slug: string,
-) {
-	return { rank, name, symbol, slug };
-}
-
-const LIMIT_PAGE = 10;
-
-const rows = [
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
 	createData(1, "binance", "BUSD", "binance"),
