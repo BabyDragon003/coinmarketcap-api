@@ -18,6 +18,27 @@ function createData(
 	symbol: string,
 	slug: string,
 ) {
+	return { rank, name, symbol, slug };
+}
+
+const LIMIT_PAGE = 10;
+
+const rows = [
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+	createData(1, "binance", "BUSD", "binance"),
+];
+
+export default function CryptoTable() {
+	const [start, setStart] = useState(1);
+	const dispatch = useAppDispatch();
+	const coinInfo = useSelector((state: any) => state.coinInfo)
+	const { list, count } = coinInfo;
 	useEffect(() => {
 		dispatch(fetchCoinCount());
 		dispatch(fetchCoinList(start, LIMIT_PAGE));
