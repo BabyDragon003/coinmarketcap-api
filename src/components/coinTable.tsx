@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { fetchCoinList, fetchCoinCount } from '../Redux/actions/coinAction';
 import { useAppDispatch } from '../Redux/hooks';
 
@@ -12,27 +18,6 @@ function createData(
 	symbol: string,
 	slug: string,
 ) {
-	return { rank, name, symbol, slug };
-}
-
-const LIMIT_PAGE = 10;
-
-const rows = [
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-];
-
-export default function CryptoTable() {
-	const [start, setStart] = useState(1);
-	const dispatch = useAppDispatch();
-	const coinInfo = useSelector((state: any) => state.coinInfo)
-	const { list, count } = coinInfo;
 	useEffect(() => {
 		dispatch(fetchCoinCount());
 		dispatch(fetchCoinList(start, LIMIT_PAGE));
