@@ -13,16 +13,11 @@ import { fetchCoinList, fetchCoinCount } from '../Redux/actions/coinAction';
 import { useAppDispatch } from '../Redux/hooks';
 
 function createData(
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-	createData(1, "binance", "BUSD", "binance"),
-];
-
-export default function CryptoTable() {
-	const [start, setStart] = useState(1);
-	const dispatch = useAppDispatch();
-	const coinInfo = useSelector((state: any) => state.coinInfo)
-	const { list, count } = coinInfo;
+	rank: number,
+	name: string,
+	symbol: string,
+	slug: string,
+) {
 	useEffect(() => {
 		dispatch(fetchCoinCount());
 		dispatch(fetchCoinList(start, LIMIT_PAGE));
