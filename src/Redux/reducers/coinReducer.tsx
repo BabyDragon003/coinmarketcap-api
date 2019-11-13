@@ -1,3 +1,4 @@
+import { ActionType } from '../types'
 
 const initialState = {
     list: [],
