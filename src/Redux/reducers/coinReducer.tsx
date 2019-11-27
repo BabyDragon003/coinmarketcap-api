@@ -3,6 +3,12 @@ import { ActionType } from '../types'
 const initialState = {
     list: [],
     count: 0,
+    loading: true
+}
+
+export default function (state = initialState, action: any) {
+    switch (action.type) {
+        case ActionType.GET_COIN_LIST:
             return {
                 ...state,
                 list: action.payload,
