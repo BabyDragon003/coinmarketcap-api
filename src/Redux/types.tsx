@@ -1,4 +1,3 @@
-export enum ActionType {
     GET_COIN_LIST = 'GET_COIN_LIST',
     GET_COIN_COUNT = 'GET_COIN_COUNT',
     COIN_LIST_ERROR = 'COIN_LIST_ERROR'

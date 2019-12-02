@@ -1,4 +1,3 @@
-import { ActionType } from '../types'
 import axios from 'axios'
 
 const API_URL = process.env.REACT_APP_API_URL || "";
@@ -18,6 +17,27 @@ export const fetchCoinList = (start, limit) => async dispatch => {
                 }
             }
         )
+        dispatch({
+            type: ActionType.GET_COIN_LIST,
+            payload: res.data
+        })
+    }
+    catch (error) {
+        dispatch({
+            type: ActionType.COIN_LIST_ERROR,
+            payload: error,
+        })
+    }
+}
+
+export const fetchCoinCount = () => async dispatch => {
+    try {
+        const res = await axios.get(API_URL,
+            {
+                headers: {
+                    "X-CMC_PRO_API_KEY": API_KEY
+                }
+            }
         )
         dispatch({
             type: ActionType.GET_COIN_COUNT,
